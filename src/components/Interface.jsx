@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { useConfigurator } from "../contexts/Configurator";
 export const Interface = () => {
-  const { tableWidth, setTableWidth, legs, setLegs, legsColor, setLegsColor } =
+  const { tableWidth, setTableWidth, tableHeight, setTableHeight, legs, setLegs, legsColor, setLegsColor, plateColor, setPlateColor } =
     useConfigurator();
 
   return (
@@ -25,9 +25,25 @@ export const Interface = () => {
     >
       <Stack spacing={3}>
         <Typography variant="caption">Table Configurator</Typography>
+
         <Box className="glass" p={3}>
           <FormControl>
-            <FormLabel>Table width</FormLabel>
+            <FormLabel>Plate Thickness</FormLabel>
+            <Slider
+              sx={{
+                width: "200px",
+              }}
+              min={50}
+              max={150}
+              value={tableHeight}
+              onChange={(e) => setTableHeight(e.target.value)}
+              valueLabelDisplay="auto"
+            />
+          </FormControl>
+        </Box>
+        <Box className="glass" p={3}>
+          <FormControl>
+            <FormLabel>Table Width</FormLabel>
             <Slider
               sx={{
                 width: "200px",
@@ -83,6 +99,31 @@ export const Interface = () => {
                 value={"#C9A3B9"}
                 control={<Radio />}
                 label="Pink Gold"
+              />
+            </RadioGroup>
+          </FormControl>
+        </Box>
+        <Box className="glass" p={3}>
+          <FormControl>
+            <FormLabel>Plate Color</FormLabel>
+            <RadioGroup
+              value={plateColor}
+              onChange={(e) => setPlateColor(e.target.value)}
+            >
+              <FormControlLabel
+                value={"#ECECEC"}
+                control={<Radio />}
+                label="Bright Brown"
+              />
+              <FormControlLabel
+                value={"#777777"}
+                control={<Radio />}
+                label="Black"
+              />
+              <FormControlLabel
+                value={"#C9A3B9"}
+                control={<Radio />}
+                label="Brown"
               />
             </RadioGroup>
           </FormControl>

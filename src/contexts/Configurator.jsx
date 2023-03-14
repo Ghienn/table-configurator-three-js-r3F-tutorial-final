@@ -6,6 +6,9 @@ export const ConfiguratorProvider = ({ children }) => {
   const [legs, setLegs] = useState(0);
   const [legsColor, setLegsColor] = useState("#777777");
   const [tableWidth, setTableWidth] = useState(100);
+  const [tableHeight, setTableHeight] = useState(50);
+  const [plateColor, setPlateColor] = useState("#ECECEC");
+
   return (
     <ConfiguratorContext.Provider
       value={{
@@ -13,8 +16,12 @@ export const ConfiguratorProvider = ({ children }) => {
         setLegs,
         legsColor,
         setLegsColor,
-        tableWidth,
+        tableWidth, 
         setTableWidth,
+        tableHeight,
+        setTableHeight,
+        plateColor,
+        setPlateColor,
       }}
     >
       {children}
